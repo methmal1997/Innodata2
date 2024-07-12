@@ -1,0 +1,1775 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Combined HTML</title>
+    </head>
+    <body>
+    <body class="j-body" id="body-aps" ng-controller="j-all-news">
+<div class="com-nav top" ng-controller="j-top-menu">
+<div class="com-top">
+<div class="container clearfix">
+<span class="dateCon fl"></span>
+<span class="fr">
+<a href="http://en.igg-journals.cn/">Home</a><i> / </i>
+<a href="http://en.igg-journals.cn/index/contact_us">Contact us</a>
+<i class=""> / </i>
+<a href="http://www.ysxb.ac.cn/">中文</a>
+</span>
+</div>
+</div> <div class="">
+<div class="header">
+<div class="container clearfix">
+<div class="logo fl">
+<span class="fl main-logo"><a href="http://en.igg-journals.cn/"><img alt="" src="/style/web/images/custom/tpl5/logo1.png"/></a></span>
+<a class="logocon fl" href="/en/">
+<img class="img-responsive" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/logo_2020122914160602.png"/>
+</a>
+</div>
+<div class="logor fr">
+<div class="top-nav nav header-nav fr">
+<ul class="nav-inner clearfix i-top-menu top-menu">
+<li ng-if="newsColumn.columnNewsShowLocation == '1'" ng-repeat="newsColumn in topMenus" repeat-finish-light="" type="{{newsColumn.abbreviation}}">
+<a href="/en{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{newsColumn.columnNewsOpenTarget}}">
+<i ng-bind-html="newsColumn.name"></i>
+<span ng-if="newsColumn.subColumns.length &gt; 0"></span>
+<span ng-if="newsColumn.abbreviation == 'journals'"></span>
+</a>
+<a href="/{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{newsColumn.columnNewsOpenTarget}}">
+<i ng-bind-html="newsColumn.name"></i>
+<span ng-if="newsColumn.subColumns.length &gt; 0"></span>
+<span ng-if="newsColumn.abbreviation == 'journals'"></span>
+</a>
+<ol class="data-show i-menu-journals" ng-if="newsColumn.abbreviation == 'journals'"></ol>
+<ol class="data-show" ng-if="newsColumn.subColumns.length &gt; 0">
+<li ng-repeat="subColumn in newsColumn.subColumns" type="{{subColumn.abbreviation}}">
+<a href="/en{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+<a href="{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!--手机-->
+<div class="phone-nav">
+<div class="container clear">
+<div class="navList fl">
+<span class="span1"></span>
+<span class="span2"></span>
+<span class="span3"></span>
+</div>
+<a class="logo fl" href="/en/">
+<img class="img-responsive" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/logo_2020122914160602.png"/>
+</a>
+<div class="search-app fr"></div>
+</div>
+<div class="search-app-wrap">
+<div class="container clear">
+<div class="left fl">
+<form action="/en/search" class="topSearchForm" method="POST" onsubmit="return checkSearch(this);">
+<input class="fl text" name="q" placeholder="Search" type="text"/>
+<input name="language" type="hidden" value="en"/>
+<input name="publisherId" type="hidden" value="aps"/>
+<input class="sub fl" type="submit" value=""/>
+</form>
+</div>
+<a class="gao fr" href="javascript:void(0);" onclick="advanceSearchEntrance();">Search Advanced</a>
+</div>
+</div>
+<ul class="smallUl i-top-menu top-menu">
+<li ng-if="newsColumn.columnNewsShowLocation == '1'" ng-repeat="newsColumn in topMenus" type="{{newsColumn.abbreviation}}">
+<a href="/en{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1 ">{{newsColumn.name}}<span class="fa fa-angle-down" ng-if="newsColumn.subColumns.length &gt; 0"></span></a>
+<a href="/{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1">{{newsColumn.name}}<span class="fa fa-angle-down" ng-if="newsColumn.subColumns.length &gt; 0"></span></a>
+<ol class="data-show i-menu-journals" ng-if="newsColumn.abbreviation == 'journals'"></ol>
+<ol class="data-show" ng-if="newsColumn.subColumns.length &gt; 0">
+<li ng-repeat="subColumn in newsColumn.subColumns" type="{{subColumn.abbreviation}}">
+<a href="/en{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+<a href="{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="main main-index com-nav">
+<div class="searchBox ng-cloak" ng-cloak="">
+<div class="banner-bg"></div>
+<div class="searchBanner" ng-if="newsColumn.abbreviation == 'indexbanner'" ng-repeat="newsColumn in newsColumns">
+<div class="item" i-banner0="" ng-repeat="news in newsColumn.news">
+<div class="pic">
+<a href="javascript:void(0);">
+<img alt="{{news.title}}" ng-src="http://data.geophy.cn/{{news.imagePath}}"/>
+</a>
+</div>
+</div>
+</div>
+<div class="banner-lw j-hot-objects" data="4" ng-controller="j-hot-objects" type="indexBanner">
+<div class="container">
+<div class="item-lw" i-banner1="" ng-repeat="item in articles">
+<div class="pic" ng-if="item.hotType == 'news'">
+<a class="tit" ng-bind-html="item.news.title | trustHtml:80:'...'"></a>
+<div class="detail">
+<a class="tit" href="{{item.news.linkedWebsite}}" ng-if="item.news.linkedWebsite != '' &amp;&amp; item.news.linkedWebsite != null" target="{{item.news.openTarget}}">
+								More	
+							</a>
+<a class="tit" href="/en/news/aps/{{item.news.id}}" ng-if="item.news.linkedWebsite == '' || item.news.linkedWebsite == null" target="{{item.news.openTarget}}">
+								More	
+							</a>
+</div>
+</div>
+<div class="pic" ng-if="item.hotType == 'article'">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{item.article.doi}}" ng-if="item.article.doi !='' &amp;&amp; item.article.doi != null" target="_blank">
+<span ng-bind-html="item.article.titleEn | trustHtml:80:'...'"><span>
+</span></span></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{item.article.id}}" ng-if="item.article.doi =='' || item.article.doi == null" target="_blank">
+<span ng-bind-html="item.article.titleEn | trustHtml:80:'...'"><span>
+</span></span></a>
+<div class="article-list-author">
+<span ng-repeat="author in item.article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" type="authors.authorNameEn">
+								{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="detail">
+<a class="i-j-tit" href="{{article.viewUrl}}en/article/doi/{{item.article.doi}}" ng-if="item.article.doi !='' &amp;&amp; item.article.doi != null" target="_blank">
+							More		            
+							</a>
+<a class="i-j-tit" href="{{article.viewUrl}}en/article/id/{{item.article.id}}" ng-if="item.article.doi =='' || item.article.doi == null" target="_blank">
+							More              
+							</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 搜索 -->
+<div class="j-searchBg ng-cloak" ng-cloak="">
+<div class="container">
+<form action="/en/search" class="ng-pristine ng-valid" method="POST" onsubmit="return checkSearch(this);">
+<div class="clearfix">
+<select class="fl" name="searchField">
+<option selected="" value="">All</option>
+<option value="titleEn">Title</option>
+<option value="authors.authorNameEn">Author</option>
+<option value="keywords.keywordEn">Keyword</option>
+<option value="abstractinfoEn">Abstract</option>
+<option value="doi">DOI</option>
+<option value="classifyinfoEn">Classify</option>
+<option value="affiliations.affliEn">Address</option>
+<option value="funds.fundsInfoEn">Funds</option>
+</select>
+<div class="j-input fl clear">
+<input class="fl text" name="q" placeholder="Please enter the key words" type="text"/>
+<input name="publisherId" type="hidden" value="aps"/>
+<input name="language" type="hidden" value="en"/>
+<input class="fl sub" type="submit" value="Search"/>
+</div>
+<a class="gjss fl" href="javascript:void(0);" onclick="advanceSearchEntrance();">Advanced Search</a>
+</div>
+</form>
+</div>
+</div>
+<div class="navigation">
+<div class="container">
+<a href="/en/aps/"><img class="goHome" src="/style/web/images/custom/tpl5/home.png"/>Home</a> &gt; <a class="last-nav" href="/en/aps/">Acta Petrologica Sinica</a>
+</div>
+</div> <!-- 期刊信息 -->
+<div class="j-center ng-cloak" ng-cloak="">
+<div class="container">
+<div class="j-left col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<input id="limit" type="hidden" value="999"/>
+<div class="item-div articleBoxMargin">
+<div class="tabulwrap clearfix ban-tab">
+<div class="tab-box">
+<ul class="tab-ul tab-ul-index clear" id="myTab">
+<li class=""><a data-toggle="tab" href="#yxcb">Priority</a></li>
+<li class="active"><a data-toggle="tab" href="#current">Current</a></li>
+<li class=""><a href="/en/aps/archive">Archive</a></li>
+<li class=""><a href="/en/aps/most_downloaded">Top down</a></li>
+<li class=""><a href="/en/aps/most_viewed">Top view</a></li>
+<li class=""><a href="/en/aps/most_cited">Top cited</a></li>
+</ul>
+</div>
+<div class="tab-content" id="myTabContent">
+<!-- 优先出版 -->
+<div class="tab-pane fade articleListBox j-latest-priority" id="yxcb" ng-controller="j-latest-articles">
+<div class="articleListBox">
+<div class="colorRed">In order to improve timeliness, the article is published online before formal publication. The content is unedited or flawed. Please refer to the final published version.</div>
+<div>
+<div class="article-list article-array" id="{{article.id}}" ng-repeat="article in articles">
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+<div class="morep hidden"><a class="article-more1">MORE+</a></div>
+</div>
+<div class="origialarticle hidden">
+<div ng-repeat="classify in classifys track by $index">
+<div class="article-list-journalg" id="c_{{$index}}" ng-if="classify2 != 'other_'">
+<a href="javascript:;">{{classify2}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="article.classifyinfoEn == classify2" ng-repeat="article in articles">
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+<!-- 当期目录 -->
+<div class="tab-pane fade articleListBox j-current-issue2 active in" id="current" ng-controller="j-current-issue2">
+<div class="article-list article-array ml-fm">
+<div class="article-list-right">
+<div class="allwrap clearfix">
+<!--  
+							<div class="article-img listpic fl">
+								<a href="javascript:void(0);" class="pic">
+									<img ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/202407.jpg" alt="">
+								</a>
+							</div>
+							-->
+<div class="article-list-info listwrap">
+<div class="article-list-title">
+<a href="javascript:void(0);">2024, 40(7)</a>
+</div>
+<div class="article-list-zy">
+<a class="one" href="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/2024/7/2024622142249393.jpg" target="_blank">
+												Cover
+										</a>
+<a href="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/2024/7/20246221418125.pdf" target="_blank">
+										Catalog
+									</a>
+<a class="page-btn prev-page" href="/en/aps/article/2024/6">Previous Issue</a>
+</div>
+</div>
+</div>
+</div>
+</div> <div class="clearfix">
+<div class="toolBox1 clear tool-current fr">
+<div class="column fl" ng-if="$index == 0 &amp;&amp; (classifys.size() &gt; 1 || (classifys.size() == 1 &amp;&amp; classify != 'other_'))" ng-repeat="classify in classifys">
+<div class="_table">
+<div class="_cell clear">
+<i class="fa fa-navicon fl"></i>
+<span class="fl">Column</span>
+<div class="column-list">
+<ul class="column-ul j-list-classify">
+<li class="mainColor" ng-if="classify != 'other_'" ng-repeat="classify in classifys">
+<a class="mainColor" href="#c_{{$index}}">{{classify}}</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 
+		              <div class="current-title fl" >2024年 第40卷  第7期</div>
+		              -->
+<div class="derived fr">
+<!--  
+		              	<span>显示方式:</span>
+		           	   <i title="图文列表" class="iconfont icon-tupian2 widthimg"></i>
+		               <i title="简洁列表" class="iconfont icon-wenbenmoshi widthtext current"></i>
+		               <i title="带摘要列表" class="iconfont icon-tuwen2 widthabs"></i>
+		               <div class="line"></div>
+		               -->
+<i class="iconfont icon-daochu4 fl" data-target="#exportCitationModal" data-toggle="modal" id="export" title="Export"></i>
+<i class="iconfont icon-yinyong1" data-target="#ReferenceFormat" data-toggle="modal" id="ReferencePaper" title="Reference Paper"></i>
+</div>
+</div>
+<div class="selectAll fl">
+<label class="chooseAll">
+<input class="checkAll" type="checkbox" value="">Select All
+			    		</input></label>
+</div>
+</div>
+<div class="articleListBox limitarticle">
+<div ng-repeat="classify2 in classifyTemp track by $index">
+<div class="article-list-journalg" id="c_{{$index}}" ng-if="classify2!='other_' &amp;&amp; classify2 &amp;&amp; classify2!=' ' ">
+<a href="javascript:;" ng-if="classify2!='other_'">{{classify2}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="article.classifyinfoEn == classify2 || (classify2 == 'other_' &amp;&amp; article.classifyinfoEn=='') || (classify2 == 'other_' &amp;&amp; article.classifyinfoEn == null)" ng-repeat="article in articleTemp track by $index">
+<div class="article-list-left">
+<input checkarticleid="{{article.id}}" name="journalArticleCheck" type="checkbox" value="{{article.id}}"/>
+</div>
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+<div class="morep"><a class="article-more1">MORE+</a></div>
+</div>
+<div class="origialarticle">
+<div ng-repeat="classify in classifys track by $index">
+<div class="article-list-journalg" id="c_{{$index}}">
+<a href="javascript:;" ng-if="classify != 'other_'">{{classify}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="classify==article.classifyinfoEn || (classify=='other_' &amp;&amp; article.classifyinfoEn=='') || (classify=='other_' &amp;&amp; article.classifyinfoEn == null)" ng-repeat="article in articles">
+<div class="article-list-left">
+<input checkarticleid="{{article.id}}" name="journalArticleCheck" type="checkbox" value="{{article.id}}"/>
+</div>
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--导出引用  开始-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="exportCitationModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+<h2 class="modal-title mainColor" id="myModalLabel"><b>Export File</b></h2>
+</div>
+<div class="modal-body copyCitationInfo">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h4 class="panel-title">Format</h4>
+</div>
+<div class="panel-body">
+<div class="radio">
+<label>
+<input checked="" name="format" type="radio" value="ris"/>
+                            RIS(for EndNote,Reference Manager,ProCite)
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="format" type="radio" value="bib"/>
+                            BibTex
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="format" type="radio" value="txt"/>
+                            Txt
+                        </label>
+</div>
+</div>
+</div>
+<div class="panel panel-success">
+<div class="panel-heading">
+<h4 class="panel-title">Content</h4>
+</div>
+<div class="panel-body">
+<div class="radio">
+<label>
+<input checked="" name="content" type="radio" value="0"/>
+                            Citation Only
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="content" type="radio" value="1"/>
+                             Citation and Abstract
+                        </label>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button article_id="" class="btn btn-primary" data-dismiss="modal" id="exportArticleId" onclick="toExportCitation(this)" type="button">Export</button>
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!--导出引用  结束-->
+<!-- 引用参考文献  开始 -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="ReferenceFormat" role="dialog" tabindex="-1">
+<div class="modal-dialog modalWidth">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+<h2 class="modal-title mainColor" id="myModalLabel"><b>Citation</b></h2>
+</div>
+<div class="modal-body copyCitationInfo">
+<div class="ReferenceScroll">
+<!-- <p class="fixP">You can copy and paste references from this page.</p> -->
+<div id="copyReference">
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<textarea id="biao1" style="overflow:hidden; width:0; height:0;border:0; outline: none;resize:none;background:none;"></textarea>
+<button article_id="" class="btn btn-primary" data-dismiss="modal" onclick="copyArticle(this);" type="button">Copy</button>
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 引用参考文献  结束 --> </div>
+<div class="j-right col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<input class="newsShow" type="hidden" value="news_focus"/>
+<input class="newsShow" type="hidden" value="notice"/>
+<input class="newsShow" type="hidden" value="links"/>
+<input class="newsShow" type="hidden" value="download"/>
+<input class="newsShow" type="hidden" value="hyxx"/>
+<input class="newsShow" type="hidden" value="kjxw"/>
+<input class="newsShow" type="hidden" value="summariesinchinese"/>
+<!-- 期刊信息 -->
+<input class="newsShow" type="hidden" value="qrcode"/>
+<input class="newsShow" type="hidden" value="qkjs"/>
+<input class="newsShow" type="hidden" value="gfwz"/>
+<div class="journal-info ng-cloak" ng-cloak="">
+<div class="container">
+<div class="journal-cover fl">
+<a href="/en/aps/current">
+<img alt="" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/202407.jpg"/>
+</a>
+</div>
+<div class="journal-desc fl">
+<div class="titCn">
+<span class="titCn">岩石学报</span>
+<span class="time">Established 1985,
+																				Monthly																         		         </span>
+</div>
+<div class="titEn">Acta Petrologica Sinica</div>
+<div class="journalBtn">
+<span class="qkjs-btn" ng-if="newsColumn.abbreviation == 'qkjs'" ng-repeat="newsColumn in newsColumns">
+<a href="/en/{{newsColumn.publisherId}}/news/{{news.id}}" ng-if="$index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">Introduction</a>
+</span>
+<span class="qkjs-btn" ng-if="newsColumn.abbreviation == 'gfwz'" ng-repeat="newsColumn in newsColumns">
+<a href="{{news.linkedWebsite}}" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null &amp;&amp; $index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">
+			 		Website
+			 		</a>
+<a href="/en/{{newsColumn.publisherId}}/news/{{news.id}}" ng-if="!news.linkedWebsite  &amp;&amp; $index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">
+					Website
+					</a>
+</span>
+<span class="issn"><strong>ISSN</strong> 1000-0569</span>
+<span class="cn"><strong>CN</strong> 11-1922/P</span>
+</div>
+<div class="journal-con" ng-if="newsColumn.abbreviation == 'qkjs'" ng-repeat="newsColumn in newsColumns">
+<div ng-if="$index==0" ng-repeat="news in newsColumn.news">
+<div ng-bind-html="news.introduction | trustHtml:280:'...'"></div>
+</div>
+</div>
+<div class="qrcodes clearfix" ng-if="newsColumn.abbreviation == 'qrcode'" ng-repeat="newsColumn in newsColumns">
+<span class="fl qrcodeBox" ng-repeat="news in newsColumn.news">
+<img alt="{{news.title}}" ng-src="http://data.geophy.cn/{{news.imagePath}}"/>
+<span ng-bind-html="news.title | trustHtml:0:''"></span>
+</span>
+</div>
+</div> <div class="journal-qrcode fl">
+<div class="clearfix">
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Online Submission</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Manuscript Tracking</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Editor Login</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Editor-in-chief Login</a>
+</div>
+</div>
+</div>
+</div> <!-- 最新论文推荐latest-recommend"开始 -->
+<div class="latest-recommend comwrap">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span> Paper recommendation</span></div>
+<a class="more fr" href="/en/aps/hot/latestArticleRecommend">MORE+</a>
+</div>
+<ul class="latest-box j-hot-article-limit" data="6" ng-controller="j-hot-article-limit" type="latestArticleRecommend">
+<li ng-repeat="article in articles_limit">
+<span class="glyphicon glyphicon-play"></span>
+<a class="tit" href="/en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank"></a>
+<a class="tit" href="/en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="article.doi =='' || article.doi == null" target="_blank"></a>
+<!--  <span class="time" ng-bind-html="article.preferredDate | date:'dd MMMM yyyy'"></span>-->
+</li>
+</ul>
+</div>
+<!-- 热点专题hot-topic开始 -->
+<div class="hot-topic comwrap">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>Hot topics</span></div>
+<a class="more fr" href="/en/aps/specials">MORE+</a>
+</div>
+<ul class="hot-topic-box j-special-issue-limit" data="6" ng-controller="j-special-issue-limit" type="1">
+<li ng-repeat="special in specialIssue_limit">
+<a class="specile-tit" href="{{special.linkedWebsite}}" ng-if="special.linkedWebsite &amp;&amp; special.imgPath" target="_blank">
+<img alt="" ng-if="special.imgSize == '-1'" ng-src="{{special.imgPath}}"/>
+<img alt="" ng-if="special.imgSize != '-1'" ng-src="http://data.geophy.cn/{{special.imgPath}}"/>
+</a>
+<a class="specile-tit" href="/en/{{special.publisherId}}/specials/{{special.id}}" ng-if="!special.linkedWebsite &amp;&amp; special.imgPath" title="{{special.titleEn}}">
+<img alt="" ng-if="special.imgSize == '-1'" ng-src="{{special.imgPath}}"/>
+<img alt="" ng-if="special.imgSize != '-1'" ng-src="http://data.geophy.cn/{{special.imgPath}}"/>
+</a>
+<a class="specile-tit" href="{{special.linkedWebsite}}" ng-bind-html="special.titleEn | trustHtml:0:'...'" ng-if="special.linkedWebsite" target="_blank" title="{{special.titleEn}}"></a>
+<a class="specile-tit" href="/en/{{special.publisherId}}/specials/{{special.id}}" ng-bind-html="special.titleEn | trustHtml:0:'...'" ng-if="!special.linkedWebsite" title="{{special.titleEn}}"></a>
+</li>
+</ul>
+</div>
+<!-- 热点专题hot-topic结束 -->
+<!-- 会议信息开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'hyxx' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/hyxx">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<div class="fl tit-box">
+<span class="line"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;2">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 会议信息结束 -->
+<!-- 新闻公告news开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'notice' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/notice">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico2"></span>
+<div class="fl tit-box">
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:0:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;1">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 新闻公告news结束 -->
+<!-- 科技新闻开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'kjxw' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/kjxw">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<div class="fl tit-box">
+<span class="line"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;1">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 科技新闻结束 -->
+<!-- summariesinchinese开始 -->
+<div class="j-links comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'summariesinchinese' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/list/links">MORE+</a>
+</div>
+<ul class="j-links-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- summariesinchinese结束 -->
+<!-- 下载中心download开始 -->
+<div class="download comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'download' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/download">MORE+</a>
+</div>
+<ul class="download-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- 下载中心donwload结束 -->
+<!-- links开始 -->
+<div class="j-links comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'links' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/links">MORE+</a>
+</div>
+<ul class="j-links-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- links结束 -->
+<!-- contact开始 -->
+<div class="alert-rss clearfix">
+<a href="/en/aps/alert"><span class="yjdy"></span>Email Elert</a>
+<a href="/en/aps/rss"><span class="rss"></span>RSS</a>
+</div>
+<!-- contact结束 -->
+</div>
+</div>
+</div>
+</div>
+<div class="footer ban-footer ng-cloak" ng-cloak="">
+<div class="footer" ng-controller="j-bottom-menu">
+<input id="language" type="hidden" value="en"/>
+<input id="websitecn" type="hidden" value="http://www.igg-journals.cn/"/>
+<input id="websiteen" type="hidden" value="http://en.igg-journals.cn/"/>
+<input class="newsShow" type="hidden" value="publisherNews"/>
+<input id="publisherId" type="hidden" value="aps"/>
+<input id="tplPath" type="hidden" value="en/tpl5"/>
+<div class="bottom-fixed"></div>
+<div class="bottom container">
+<p><span>Address: Mailbox 9825, Beijing/19 Beitucheng West Road, Chaoyang District, Beijing</span><span>Postcode: 100029</span></p>
+<p>
+<span>Tel: (010) 82998205/82998135/82998137</span>
+<span>Email: <a href="mailto:ysxb@mail.iggcas.ac.cn">ysxb@mail.iggcas.ac.cn</a></span>
+</p>
+<p>
+<span>Copyright © 2009-2023 Acta Petrologica Sinica</span>
+<span><a href="http://beian.miit.gov.cn/" target="_blank">京ICP备05029136号-23</a></span>
+</p>
+</div>
+<p class="Supported">Supported by: <a href="http://www.rhhz.net/" target="_blank">Beijing Renhe Information Technology Co. Ltd  </a></p>
+</div>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135292824-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135292824-1');
+</script> -->
+<!--<script src="//plugin.sowise.cn/sowise-plugin.js" custom-options="{'citedby':false,'suggest':false,'ipRecord':true,'journalId':999}"></script>-->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var oScript = document.createElement("script");
+		oScript.type = "text/javascript";
+		oScript.src = "//plugin.sowise.cn/sowise-plugin.js";
+		oScript.setAttribute("custom-options", "{'citedby':false,'suggest':false,'ipRecord':true,'journalId':999}");
+		document.body.appendChild(oScript);
+	})
+</script></div>
+</body><br><body class="j-body" id="body-aps" ng-controller="j-all-news">
+<div class="com-nav top" ng-controller="j-top-menu">
+<div class="com-top">
+<div class="container clearfix">
+<span class="dateCon fl"></span>
+<span class="fr">
+<a href="http://en.igg-journals.cn/">Home</a><i> / </i>
+<a href="http://en.igg-journals.cn/index/contact_us">Contact us</a>
+<i class=""> / </i>
+<a href="http://www.ysxb.ac.cn/">中文</a>
+</span>
+</div>
+</div> <div class="">
+<div class="header">
+<div class="container clearfix">
+<div class="logo fl">
+<span class="fl main-logo"><a href="http://en.igg-journals.cn/"><img alt="" src="/style/web/images/custom/tpl5/logo1.png"/></a></span>
+<a class="logocon fl" href="/en/">
+<img class="img-responsive" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/logo_2020122914160602.png"/>
+</a>
+</div>
+<div class="logor fr">
+<div class="top-nav nav header-nav fr">
+<ul class="nav-inner clearfix i-top-menu top-menu">
+<li ng-if="newsColumn.columnNewsShowLocation == '1'" ng-repeat="newsColumn in topMenus" repeat-finish-light="" type="{{newsColumn.abbreviation}}">
+<a href="/en{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{newsColumn.columnNewsOpenTarget}}">
+<i ng-bind-html="newsColumn.name"></i>
+<span ng-if="newsColumn.subColumns.length &gt; 0"></span>
+<span ng-if="newsColumn.abbreviation == 'journals'"></span>
+</a>
+<a href="/{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{newsColumn.columnNewsOpenTarget}}">
+<i ng-bind-html="newsColumn.name"></i>
+<span ng-if="newsColumn.subColumns.length &gt; 0"></span>
+<span ng-if="newsColumn.abbreviation == 'journals'"></span>
+</a>
+<ol class="data-show i-menu-journals" ng-if="newsColumn.abbreviation == 'journals'"></ol>
+<ol class="data-show" ng-if="newsColumn.subColumns.length &gt; 0">
+<li ng-repeat="subColumn in newsColumn.subColumns" type="{{subColumn.abbreviation}}">
+<a href="/en{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+<a href="{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!--手机-->
+<div class="phone-nav">
+<div class="container clear">
+<div class="navList fl">
+<span class="span1"></span>
+<span class="span2"></span>
+<span class="span3"></span>
+</div>
+<a class="logo fl" href="/en/">
+<img class="img-responsive" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/logo_2020122914160602.png"/>
+</a>
+<div class="search-app fr"></div>
+</div>
+<div class="search-app-wrap">
+<div class="container clear">
+<div class="left fl">
+<form action="/en/search" class="topSearchForm" method="POST" onsubmit="return checkSearch(this);">
+<input class="fl text" name="q" placeholder="Search" type="text"/>
+<input name="language" type="hidden" value="en"/>
+<input name="publisherId" type="hidden" value="aps"/>
+<input class="sub fl" type="submit" value=""/>
+</form>
+</div>
+<a class="gao fr" href="javascript:void(0);" onclick="advanceSearchEntrance();">Search Advanced</a>
+</div>
+</div>
+<ul class="smallUl i-top-menu top-menu">
+<li ng-if="newsColumn.columnNewsShowLocation == '1'" ng-repeat="newsColumn in topMenus" type="{{newsColumn.abbreviation}}">
+<a href="/en{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1 ">{{newsColumn.name}}<span class="fa fa-angle-down" ng-if="newsColumn.subColumns.length &gt; 0"></span></a>
+<a href="/{{newsColumn.links}}" ng-if="newsColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1">{{newsColumn.name}}<span class="fa fa-angle-down" ng-if="newsColumn.subColumns.length &gt; 0"></span></a>
+<ol class="data-show i-menu-journals" ng-if="newsColumn.abbreviation == 'journals'"></ol>
+<ol class="data-show" ng-if="newsColumn.subColumns.length &gt; 0">
+<li ng-repeat="subColumn in newsColumn.subColumns" type="{{subColumn.abbreviation}}">
+<a href="/en{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') == -1 &amp;&amp; newsColumn.links.indexOf('javascript') == -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+<a href="{{subColumn.links}}" ng-if="subColumn.links.indexOf('http') != -1 || newsColumn.links.indexOf('javascript') != -1" target="{{subColumn.columnNewsOpenTarget}}">{{subColumn.name}}</a>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</div><div class="main main-index com-nav">
+<div class="searchBox ng-cloak" ng-cloak="">
+<div class="banner-bg"></div>
+<div class="searchBanner" ng-if="newsColumn.abbreviation == 'indexbanner'" ng-repeat="newsColumn in newsColumns">
+<div class="item" i-banner0="" ng-repeat="news in newsColumn.news">
+<div class="pic">
+<a href="javascript:void(0);">
+<img alt="{{news.title}}" ng-src="http://data.geophy.cn/{{news.imagePath}}"/>
+</a>
+</div>
+</div>
+</div>
+<div class="banner-lw j-hot-objects" data="4" ng-controller="j-hot-objects" type="indexBanner">
+<div class="container">
+<div class="item-lw" i-banner1="" ng-repeat="item in articles">
+<div class="pic" ng-if="item.hotType == 'news'">
+<a class="tit" ng-bind-html="item.news.title | trustHtml:80:'...'"></a>
+<div class="detail">
+<a class="tit" href="{{item.news.linkedWebsite}}" ng-if="item.news.linkedWebsite != '' &amp;&amp; item.news.linkedWebsite != null" target="{{item.news.openTarget}}">
+								More	
+							</a>
+<a class="tit" href="/en/news/aps/{{item.news.id}}" ng-if="item.news.linkedWebsite == '' || item.news.linkedWebsite == null" target="{{item.news.openTarget}}">
+								More	
+							</a>
+</div>
+</div>
+<div class="pic" ng-if="item.hotType == 'article'">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{item.article.doi}}" ng-if="item.article.doi !='' &amp;&amp; item.article.doi != null" target="_blank">
+<span ng-bind-html="item.article.titleEn | trustHtml:80:'...'"><span>
+</span></span></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{item.article.id}}" ng-if="item.article.doi =='' || item.article.doi == null" target="_blank">
+<span ng-bind-html="item.article.titleEn | trustHtml:80:'...'"><span>
+</span></span></a>
+<div class="article-list-author">
+<span ng-repeat="author in item.article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" type="authors.authorNameEn">
+								{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="detail">
+<a class="i-j-tit" href="{{article.viewUrl}}en/article/doi/{{item.article.doi}}" ng-if="item.article.doi !='' &amp;&amp; item.article.doi != null" target="_blank">
+							More		            
+							</a>
+<a class="i-j-tit" href="{{article.viewUrl}}en/article/id/{{item.article.id}}" ng-if="item.article.doi =='' || item.article.doi == null" target="_blank">
+							More              
+							</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 搜索 -->
+<div class="j-searchBg ng-cloak" ng-cloak="">
+<div class="container">
+<form action="/en/search" class="ng-pristine ng-valid" method="POST" onsubmit="return checkSearch(this);">
+<div class="clearfix">
+<select class="fl" name="searchField">
+<option selected="" value="">All</option>
+<option value="titleEn">Title</option>
+<option value="authors.authorNameEn">Author</option>
+<option value="keywords.keywordEn">Keyword</option>
+<option value="abstractinfoEn">Abstract</option>
+<option value="doi">DOI</option>
+<option value="classifyinfoEn">Classify</option>
+<option value="affiliations.affliEn">Address</option>
+<option value="funds.fundsInfoEn">Funds</option>
+</select>
+<div class="j-input fl clear">
+<input class="fl text" name="q" placeholder="Please enter the key words" type="text"/>
+<input name="publisherId" type="hidden" value="aps"/>
+<input name="language" type="hidden" value="en"/>
+<input class="fl sub" type="submit" value="Search"/>
+</div>
+<a class="gjss fl" href="javascript:void(0);" onclick="advanceSearchEntrance();">Advanced Search</a>
+</div>
+</form>
+</div>
+</div>
+<div class="navigation">
+<div class="container">
+<a href="/en/aps/"><img class="goHome" src="/style/web/images/custom/tpl5/home.png"/>Home</a> &gt; <a class="last-nav" href="/en/aps/">Acta Petrologica Sinica</a>
+</div>
+</div> <!-- 期刊信息 -->
+<div class="j-center ng-cloak" ng-cloak="">
+<div class="container">
+<div class="j-left col-lg-8 col-md-8 col-sm-12 col-xs-12">
+<input id="limit" type="hidden" value="999"/>
+<div class="item-div articleBoxMargin">
+<div class="tabulwrap clearfix ban-tab">
+<div class="tab-box">
+<ul class="tab-ul tab-ul-index clear" id="myTab">
+<li class=""><a data-toggle="tab" href="#yxcb">Priority</a></li>
+<li class="active"><a data-toggle="tab" href="#current">Current</a></li>
+<li class=""><a href="/en/aps/archive">Archive</a></li>
+<li class=""><a href="/en/aps/most_downloaded">Top down</a></li>
+<li class=""><a href="/en/aps/most_viewed">Top view</a></li>
+<li class=""><a href="/en/aps/most_cited">Top cited</a></li>
+</ul>
+</div>
+<div class="tab-content" id="myTabContent">
+<!-- 优先出版 -->
+<div class="tab-pane fade articleListBox j-latest-priority" id="yxcb" ng-controller="j-latest-articles">
+<div class="articleListBox">
+<div class="colorRed">In order to improve timeliness, the article is published online before formal publication. The content is unedited or flawed. Please refer to the final published version.</div>
+<div>
+<div class="article-list article-array" id="{{article.id}}" ng-repeat="article in articles">
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+<div class="morep hidden"><a class="article-more1">MORE+</a></div>
+</div>
+<div class="origialarticle hidden">
+<div ng-repeat="classify in classifys track by $index">
+<div class="article-list-journalg" id="c_{{$index}}" ng-if="classify2 != 'other_'">
+<a href="javascript:;">{{classify2}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="article.classifyinfoEn == classify2" ng-repeat="article in articles">
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+<!-- 当期目录 -->
+<div class="tab-pane fade articleListBox j-current-issue2 active in" id="current" ng-controller="j-current-issue2">
+<div class="article-list article-array ml-fm">
+<div class="article-list-right">
+<div class="allwrap clearfix">
+<!--  
+							<div class="article-img listpic fl">
+								<a href="javascript:void(0);" class="pic">
+									<img ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/202407.jpg" alt="">
+								</a>
+							</div>
+							-->
+<div class="article-list-info listwrap">
+<div class="article-list-title">
+<a href="javascript:void(0);">2024, 40(7)</a>
+</div>
+<div class="article-list-zy">
+<a class="one" href="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/2024/7/2024622142249393.jpg" target="_blank">
+												Cover
+										</a>
+<a href="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/2024/7/20246221418125.pdf" target="_blank">
+										Catalog
+									</a>
+<a class="page-btn prev-page" href="/en/aps/article/2024/6">Previous Issue</a>
+</div>
+</div>
+</div>
+</div>
+</div> <div class="clearfix">
+<div class="toolBox1 clear tool-current fr">
+<div class="column fl" ng-if="$index == 0 &amp;&amp; (classifys.size() &gt; 1 || (classifys.size() == 1 &amp;&amp; classify != 'other_'))" ng-repeat="classify in classifys">
+<div class="_table">
+<div class="_cell clear">
+<i class="fa fa-navicon fl"></i>
+<span class="fl">Column</span>
+<div class="column-list">
+<ul class="column-ul j-list-classify">
+<li class="mainColor" ng-if="classify != 'other_'" ng-repeat="classify in classifys">
+<a class="mainColor" href="#c_{{$index}}">{{classify}}</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 
+		              <div class="current-title fl" >2024年 第40卷  第7期</div>
+		              -->
+<div class="derived fr">
+<!--  
+		              	<span>显示方式:</span>
+		           	   <i title="图文列表" class="iconfont icon-tupian2 widthimg"></i>
+		               <i title="简洁列表" class="iconfont icon-wenbenmoshi widthtext current"></i>
+		               <i title="带摘要列表" class="iconfont icon-tuwen2 widthabs"></i>
+		               <div class="line"></div>
+		               -->
+<i class="iconfont icon-daochu4 fl" data-target="#exportCitationModal" data-toggle="modal" id="export" title="Export"></i>
+<i class="iconfont icon-yinyong1" data-target="#ReferenceFormat" data-toggle="modal" id="ReferencePaper" title="Reference Paper"></i>
+</div>
+</div>
+<div class="selectAll fl">
+<label class="chooseAll">
+<input class="checkAll" type="checkbox" value="">Select All
+			    		</input></label>
+</div>
+</div>
+<div class="articleListBox limitarticle">
+<div ng-repeat="classify2 in classifyTemp track by $index">
+<div class="article-list-journalg" id="c_{{$index}}" ng-if="classify2!='other_' &amp;&amp; classify2 &amp;&amp; classify2!=' ' ">
+<a href="javascript:;" ng-if="classify2!='other_'">{{classify2}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="article.classifyinfoEn == classify2 || (classify2 == 'other_' &amp;&amp; article.classifyinfoEn=='') || (classify2 == 'other_' &amp;&amp; article.classifyinfoEn == null)" ng-repeat="article in articleTemp track by $index">
+<div class="article-list-left">
+<input checkarticleid="{{article.id}}" name="journalArticleCheck" type="checkbox" value="{{article.id}}"/>
+</div>
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+<div class="morep"><a class="article-more1">MORE+</a></div>
+</div>
+<div class="origialarticle">
+<div ng-repeat="classify in classifys track by $index">
+<div class="article-list-journalg" id="c_{{$index}}">
+<a href="javascript:;" ng-if="classify != 'other_'">{{classify}}</a>
+</div>
+<div class="article-list article-array" id="{{article.id}}" ng-if="classify==article.classifyinfoEn || (classify=='other_' &amp;&amp; article.classifyinfoEn=='') || (classify=='other_' &amp;&amp; article.classifyinfoEn == null)" ng-repeat="article in articles">
+<div class="article-list-left">
+<input checkarticleid="{{article.id}}" name="journalArticleCheck" type="checkbox" value="{{article.id}}"/>
+</div>
+<div class="article-list-right clearfix">
+<div class="article-img listpic fl" ng-if="article.firstFig">
+<a class="pic" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+<a class="pic" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="article.doi =='' || article.doi == null" target="_blank">
+<img alt="" ng-src="{{article.filePath}}{{article.firstFig}}"/>
+</a>
+</div>
+<div class="article-list-info listwrap fl">
+<div class="article-list-title">
+<a class="tit" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi !='' &amp;&amp; article.doi != null) &amp;&amp; article.titleEn" target="_blank"></a>
+<a class="tit" href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="(article.doi =='' || article.doi == null) &amp;&amp; article.titleEn" target="_blank"></a>
+</div>
+<div class="article-list-author">
+<span ng-repeat="author in article.authors">
+<a class="search-like" data="{{author.authorNameEn}}" href="javascript:void(0);" ng-if="author.authorNameEn" type="author.authorNameEn">
+						{{author.authorNameEn}}</a><span ng-if="!$last">, </span>
+</span>
+</div>
+<div class="article-list-time" ng-if="!article.articleState">
+<font> {{article.year}}, <span ng-if="article.volume != null &amp;&amp; article.volume !=''">{{article.volume}}</span>({{article.issue}})<span ng-if="article.fpage &amp;&amp; article.fpage != '0'  ">: {{article.fpage | processPage:article.lpage:6}}</span>.</font>
+<font ng-if="article.doi">doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-time" ng-if="article.articleState">
+<font class="colorRed">{{article.articleStateNameEn}}</font><font class="latest_update_span">, 
+			         <i>Available online</i> <span class="article-display"><span>{{article.preferredDate | date:'dd MMMM yyyy'}}</span><span ng-if="article.doi">, </span></span></font><font ng-if="article.doi">
+					doi: <a class="mainColor" href="{{article.viewUrl}}en/article/doi/{{article.doi}}" target="_blank">{{article.doi}}</a></font>
+</div>
+<div class="article-list-zy">
+<font class="font1" ng-if="article.accessCtrl  &amp;&amp; !article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/desc.png"/>Abstract</a>
+</font>
+<font class="font2 count1" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('FULLTEXT_STATUS') &lt;= -1">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}?viewType=HTML" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}?viewType=HTML" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/html.png"/>FullText HTML</a>
+</font>
+<font class="font3" ng-if="!article.accessCtrl || article.accessCtrl.indexOf('PDF_VIEW_STATU') &lt;= -1">
+<a class="download-pdf" data="{{article.id}}" href="javascript:;"><img src="/style/web/images/custom/tpl5/pdf.png"/>PDF</a>
+</font>
+<font class="font4 cited-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('CITEDBY_STATUS') &lt;= -1) &amp;&amp; article.citedCount &gt; 0">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#citedby" ng-if="article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#citedby" ng-if="!article.doi" target="_blank"><img src="/style/web/images/custom/tpl5/citation.png"/>Cited by</a>
+</font>
+<font class="font7 sup-show" ng-if="(!article.accessCtrl || article.accessCtrl.indexOf('SUPPLEMENT_STATUS') &lt;= -1) &amp;&amp; (article.supplCount &gt;= 1)">
+<a href="{{article.viewUrl}}en/article/doi/{{article.doi}}#sup" ng-if="article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+<a href="{{article.viewUrl}}en/article/id/{{article.id}}#sup" ng-if="!article.doi" target="_blank">Supplements({{article.supplCount}})</a>
+</font>
+<font class="font6 article-times cited count fr" ng-if="article.citedCount"><img src="/style/web/images/custom/tpl5/citation2.png"/><span class="colorRed">{{article.citedCount}}</span></font>
+<font class="font5 article-pdf count fr" ng-if="article.pdfDownloadCount"><img src="/style/web/images/custom/tpl5/pdf2.png"/><span class="colorRed pdf-num">{{article.pdfDownloadCount}}</span></font>
+<font class="font4 article-times count fr" ng-if="article.visitArticleCount"><img src="/style/web/images/custom/tpl5/visits.png"/><span class="colorRed">{{article.visitArticleCount}}</span></font>
+</div>
+</div>
+</div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--导出引用  开始-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="exportCitationModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+<h2 class="modal-title mainColor" id="myModalLabel"><b>Export File</b></h2>
+</div>
+<div class="modal-body copyCitationInfo">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h4 class="panel-title">Format</h4>
+</div>
+<div class="panel-body">
+<div class="radio">
+<label>
+<input checked="" name="format" type="radio" value="ris"/>
+                            RIS(for EndNote,Reference Manager,ProCite)
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="format" type="radio" value="bib"/>
+                            BibTex
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="format" type="radio" value="txt"/>
+                            Txt
+                        </label>
+</div>
+</div>
+</div>
+<div class="panel panel-success">
+<div class="panel-heading">
+<h4 class="panel-title">Content</h4>
+</div>
+<div class="panel-body">
+<div class="radio">
+<label>
+<input checked="" name="content" type="radio" value="0"/>
+                            Citation Only
+                        </label>
+</div>
+<div class="radio">
+<label>
+<input name="content" type="radio" value="1"/>
+                             Citation and Abstract
+                        </label>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button article_id="" class="btn btn-primary" data-dismiss="modal" id="exportArticleId" onclick="toExportCitation(this)" type="button">Export</button>
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!--导出引用  结束-->
+<!-- 引用参考文献  开始 -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="ReferenceFormat" role="dialog" tabindex="-1">
+<div class="modal-dialog modalWidth">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+<h2 class="modal-title mainColor" id="myModalLabel"><b>Citation</b></h2>
+</div>
+<div class="modal-body copyCitationInfo">
+<div class="ReferenceScroll">
+<!-- <p class="fixP">You can copy and paste references from this page.</p> -->
+<div id="copyReference">
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<textarea id="biao1" style="overflow:hidden; width:0; height:0;border:0; outline: none;resize:none;background:none;"></textarea>
+<button article_id="" class="btn btn-primary" data-dismiss="modal" onclick="copyArticle(this);" type="button">Copy</button>
+<button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 引用参考文献  结束 --> </div>
+<div class="j-right col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<input class="newsShow" type="hidden" value="news_focus"/>
+<input class="newsShow" type="hidden" value="notice"/>
+<input class="newsShow" type="hidden" value="links"/>
+<input class="newsShow" type="hidden" value="download"/>
+<input class="newsShow" type="hidden" value="hyxx"/>
+<input class="newsShow" type="hidden" value="kjxw"/>
+<input class="newsShow" type="hidden" value="summariesinchinese"/>
+<!-- 期刊信息 -->
+<input class="newsShow" type="hidden" value="qrcode"/>
+<input class="newsShow" type="hidden" value="qkjs"/>
+<input class="newsShow" type="hidden" value="gfwz"/>
+<div class="journal-info ng-cloak" ng-cloak="">
+<div class="container">
+<div class="journal-cover fl">
+<a href="/en/aps/current">
+<img alt="" ng-src="http://data.geophy.cn//dzdqs-upload/journal/aps/catalogfile/202407.jpg"/>
+</a>
+</div>
+<div class="journal-desc fl">
+<div class="titCn">
+<span class="titCn">岩石学报</span>
+<span class="time">Established 1985,
+																				Monthly																         		         </span>
+</div>
+<div class="titEn">Acta Petrologica Sinica</div>
+<div class="journalBtn">
+<span class="qkjs-btn" ng-if="newsColumn.abbreviation == 'qkjs'" ng-repeat="newsColumn in newsColumns">
+<a href="/en/{{newsColumn.publisherId}}/news/{{news.id}}" ng-if="$index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">Introduction</a>
+</span>
+<span class="qkjs-btn" ng-if="newsColumn.abbreviation == 'gfwz'" ng-repeat="newsColumn in newsColumns">
+<a href="{{news.linkedWebsite}}" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null &amp;&amp; $index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">
+			 		Website
+			 		</a>
+<a href="/en/{{newsColumn.publisherId}}/news/{{news.id}}" ng-if="!news.linkedWebsite  &amp;&amp; $index==0" ng-repeat="news in newsColumn.news" target="{{news.openTarget}}">
+					Website
+					</a>
+</span>
+<span class="issn"><strong>ISSN</strong> 1000-0569</span>
+<span class="cn"><strong>CN</strong> 11-1922/P</span>
+</div>
+<div class="journal-con" ng-if="newsColumn.abbreviation == 'qkjs'" ng-repeat="newsColumn in newsColumns">
+<div ng-if="$index==0" ng-repeat="news in newsColumn.news">
+<div ng-bind-html="news.introduction | trustHtml:280:'...'"></div>
+</div>
+</div>
+<div class="qrcodes clearfix" ng-if="newsColumn.abbreviation == 'qrcode'" ng-repeat="newsColumn in newsColumns">
+<span class="fl qrcodeBox" ng-repeat="news in newsColumn.news">
+<img alt="{{news.title}}" ng-src="http://data.geophy.cn/{{news.imagePath}}"/>
+<span ng-bind-html="news.title | trustHtml:0:''"></span>
+</span>
+</div>
+</div> <div class="journal-qrcode fl">
+<div class="clearfix">
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Online Submission</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Manuscript Tracking</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Editor Login</a>
+<a class="entry" href="http://www.manuscripts.com.cn/ysxb" style="font-size:12px;" target="_blank">Editor-in-chief Login</a>
+</div>
+</div>
+</div>
+</div> <!-- 最新论文推荐latest-recommend"开始 -->
+<div class="latest-recommend comwrap">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span> Paper recommendation</span></div>
+<a class="more fr" href="/en/aps/hot/latestArticleRecommend">MORE+</a>
+</div>
+<ul class="latest-box j-hot-article-limit" data="6" ng-controller="j-hot-article-limit" type="latestArticleRecommend">
+<li ng-repeat="article in articles_limit">
+<span class="glyphicon glyphicon-play"></span>
+<a class="tit" href="/en/article/doi/{{article.doi}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="article.doi !='' &amp;&amp; article.doi != null" target="_blank"></a>
+<a class="tit" href="/en/article/id/{{article.id}}" ng-bind-html="article.titleEn | trustHtml:0:''" ng-if="article.doi =='' || article.doi == null" target="_blank"></a>
+<!--  <span class="time" ng-bind-html="article.preferredDate | date:'dd MMMM yyyy'"></span>-->
+</li>
+</ul>
+</div>
+<!-- 热点专题hot-topic开始 -->
+<div class="hot-topic comwrap">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>Hot topics</span></div>
+<a class="more fr" href="/en/aps/specials">MORE+</a>
+</div>
+<ul class="hot-topic-box j-special-issue-limit" data="6" ng-controller="j-special-issue-limit" type="1">
+<li ng-repeat="special in specialIssue_limit">
+<a class="specile-tit" href="{{special.linkedWebsite}}" ng-if="special.linkedWebsite &amp;&amp; special.imgPath" target="_blank">
+<img alt="" ng-if="special.imgSize == '-1'" ng-src="{{special.imgPath}}"/>
+<img alt="" ng-if="special.imgSize != '-1'" ng-src="http://data.geophy.cn/{{special.imgPath}}"/>
+</a>
+<a class="specile-tit" href="/en/{{special.publisherId}}/specials/{{special.id}}" ng-if="!special.linkedWebsite &amp;&amp; special.imgPath" title="{{special.titleEn}}">
+<img alt="" ng-if="special.imgSize == '-1'" ng-src="{{special.imgPath}}"/>
+<img alt="" ng-if="special.imgSize != '-1'" ng-src="http://data.geophy.cn/{{special.imgPath}}"/>
+</a>
+<a class="specile-tit" href="{{special.linkedWebsite}}" ng-bind-html="special.titleEn | trustHtml:0:'...'" ng-if="special.linkedWebsite" target="_blank" title="{{special.titleEn}}"></a>
+<a class="specile-tit" href="/en/{{special.publisherId}}/specials/{{special.id}}" ng-bind-html="special.titleEn | trustHtml:0:'...'" ng-if="!special.linkedWebsite" title="{{special.titleEn}}"></a>
+</li>
+</ul>
+</div>
+<!-- 热点专题hot-topic结束 -->
+<!-- 会议信息开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'hyxx' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/hyxx">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<div class="fl tit-box">
+<span class="line"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;2">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 会议信息结束 -->
+<!-- 新闻公告news开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'notice' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/notice">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico2"></span>
+<div class="fl tit-box">
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:0:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;1">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 新闻公告news结束 -->
+<!-- 科技新闻开始 -->
+<div class="notice comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'kjxw' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/kjxw">MORE+</a>
+</div>
+<ul class="notice-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<div class="fl tit-box">
+<span class="line"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:0:''" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+<span class="dy" ng-if="news.releaseTime">({{news.releaseTime | date:'dd MMMM yyyy'}})</span>
+<span class="ico" ng-if="$index&lt;1">NEW</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- 科技新闻结束 -->
+<!-- summariesinchinese开始 -->
+<div class="j-links comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'summariesinchinese' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/list/links">MORE+</a>
+</div>
+<ul class="j-links-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- summariesinchinese结束 -->
+<!-- 下载中心download开始 -->
+<div class="download comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'download' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/download">MORE+</a>
+</div>
+<ul class="download-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:35:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- 下载中心donwload结束 -->
+<!-- links开始 -->
+<div class="j-links comwrap comwrap-en" ng-if="newsColumn.abbreviation == 'links' &amp;&amp; newsColumn.news.length&gt;0" ng-repeat="newsColumn in newsColumns">
+<div class="j-com-bg clearfix">
+<div class="tit fl"><span class="t-icon"></span><span>{{newsColumn.name}}</span></div>
+<a class="more fr" href="/en/aps/list/links">MORE+</a>
+</div>
+<ul class="j-links-box">
+<li class="clearfix" ng-repeat="news in newsColumn.news">
+<span class="ico"></span>
+<a class="tit" href="{{news.linkedWebsite}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="news.linkedWebsite != '' &amp;&amp; news.linkedWebsite != null" target="{{news.openTarget}}">
+</a>
+<a class="tit" href="{{news.attachmentPath}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="!news.linkedWebsite  &amp;&amp; news.attachmentPath" target="_self">
+</a>
+<a class="tit" href="/en/aps/news/{{news.id}}" ng-bind-html="news.title | trustHtml:100:'...'" ng-if="!news.linkedWebsite  &amp;&amp; !news.attachmentPath" target="{{news.openTarget}}">
+</a>
+</li>
+</ul>
+</div>
+<!-- links结束 -->
+<!-- contact开始 -->
+<div class="alert-rss clearfix">
+<a href="/en/aps/alert"><span class="yjdy"></span>Email Elert</a>
+<a href="/en/aps/rss"><span class="rss"></span>RSS</a>
+</div>
+<!-- contact结束 -->
+</div>
+</div>
+</div>
+</div>
+<div class="footer ban-footer ng-cloak" ng-cloak="">
+<div class="footer" ng-controller="j-bottom-menu">
+<input id="language" type="hidden" value="en"/>
+<input id="websitecn" type="hidden" value="http://www.igg-journals.cn/"/>
+<input id="websiteen" type="hidden" value="http://en.igg-journals.cn/"/>
+<input class="newsShow" type="hidden" value="publisherNews"/>
+<input id="publisherId" type="hidden" value="aps"/>
+<input id="tplPath" type="hidden" value="en/tpl5"/>
+<div class="bottom-fixed"></div>
+<div class="bottom container">
+<p><span>Address: Mailbox 9825, Beijing/19 Beitucheng West Road, Chaoyang District, Beijing</span><span>Postcode: 100029</span></p>
+<p>
+<span>Tel: (010) 82998205/82998135/82998137</span>
+<span>Email: <a href="mailto:ysxb@mail.iggcas.ac.cn">ysxb@mail.iggcas.ac.cn</a></span>
+</p>
+<p>
+<span>Copyright © 2009-2023 Acta Petrologica Sinica</span>
+<span><a href="http://beian.miit.gov.cn/" target="_blank">京ICP备05029136号-23</a></span>
+</p>
+</div>
+<p class="Supported">Supported by: <a href="http://www.rhhz.net/" target="_blank">Beijing Renhe Information Technology Co. Ltd  </a></p>
+</div>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135292824-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135292824-1');
+</script> -->
+<!--<script src="//plugin.sowise.cn/sowise-plugin.js" custom-options="{'citedby':false,'suggest':false,'ipRecord':true,'journalId':999}"></script>-->
+<script type="text/javascript">
+	$(document).ready(function () {
+		var oScript = document.createElement("script");
+		oScript.type = "text/javascript";
+		oScript.src = "//plugin.sowise.cn/sowise-plugin.js";
+		oScript.setAttribute("custom-options", "{'citedby':false,'suggest':false,'ipRecord':true,'journalId':999}");
+		document.body.appendChild(oScript);
+	})
+</script></div>
+</body><br>
+    </body>
+    </html>
+    
