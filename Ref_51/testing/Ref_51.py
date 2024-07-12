@@ -51,7 +51,7 @@ options.add_argument('--disable-extensions')
 options.add_argument('--disable-popup-blocking')
 options.add_argument('--user-agent=YOUR_USER_AGENT_STRING')
 options.add_argument('--version_main=108')
-driver = uc.Chrome(options=options)
+# driver = uc.Chrome(options=options)
 
 headers2 = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -76,7 +76,7 @@ try:
 
     for i, url_url_id in enumerate(url_list):
         try:
-
+            attachment = None
             url, url_id = url_url_id.split(',')
             print(f"Executing this {url}")
             current_datetime = datetime.now()

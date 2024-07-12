@@ -50,7 +50,7 @@ options.add_argument('--disable-extensions')
 options.add_argument('--disable-popup-blocking')
 options.add_argument('--user-agent=YOUR_USER_AGENT_STRING')
 options.add_argument('--version_main=108')
-driver = uc.Chrome(options=options)
+# driver = uc.Chrome(options=options)
 
 headers2 = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
@@ -77,6 +77,7 @@ try:
     for i, url_url_id in enumerate(url_list):
 
         try:
+            attachment = None
             url, url_id = url_url_id.split(',')
             print(f"Executing this {url}")
             current_datetime = datetime.now()
@@ -234,6 +235,8 @@ try:
                 common_function.attachment_for_email(url_id, duplicate_list, error_list, completed_list,
                                                      len(completed_list), ini_path, attachment, current_date,
                                                      current_time, Ref_value)
+                print(out_excel_file)
+                print("PDF ddd")
 
             sts_file_path = os.path.join(current_out, 'Completed.sts')
             with open(sts_file_path, 'w') as sts_file:

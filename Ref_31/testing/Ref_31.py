@@ -77,6 +77,7 @@ try:
     url_index, url_check = 0, 0
     for i, url_url_id in enumerate(url_list):
         try:
+            attachment = None
             url, url_id = url_list[url_index].split(',')
             print(f"Executing this {url}")
             current_datetime = datetime.now()
